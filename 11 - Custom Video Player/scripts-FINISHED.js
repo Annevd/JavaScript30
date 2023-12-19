@@ -1,4 +1,5 @@
 /* Get Our Elements */
+// 1. variabelen
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');
 const progress = player.querySelector('.progress');
@@ -7,10 +8,11 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
+// 2. code logic
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
-  video[method]();
+  video[method](); // hetzelfde als: if (video.paused) { method = 'play'} else {method = 'pause'}
 }
 
 function updateButton() {
@@ -20,7 +22,7 @@ function updateButton() {
 }
 
 function skip() {
- video.currentTime += parseFloat(this.dataset.skip);
+ video.currentTime += parseFloat(this.dataset.skip); //string to number, this verwijst naar het object waarop geklikt is
 }
 
 function handleRangeUpdate() {
@@ -29,7 +31,7 @@ function handleRangeUpdate() {
 
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
-  progressBar.style.flexBasis = `${percent}%`;
+  progressBar.style.flexBasis = `${percent}%`; // hetzelfde als percent + '%'
 }
 
 function scrub(e) {
@@ -37,6 +39,7 @@ function scrub(e) {
   video.currentTime = scrubTime;
 }
 
+// 3. functies
 /* Hook up the event listeners */
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);

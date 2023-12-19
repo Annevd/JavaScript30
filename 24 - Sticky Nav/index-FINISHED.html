@@ -45,17 +45,24 @@
   </div>
 
   <script>
-    // Not a ton of code, but hard to
+    // 1. Variables
     const nav = document.querySelector('#main');
-    let topOfNav = nav.offsetTop;
+    let topOfNav = nav.offsetTop; //offsetTop is een eigenschap/property van de nav, in dit geval 354px van de top dus.
 
+    // 2. code logic
+
+
+    // 3. functions
     function fixNav() {
-      if (window.scrollY >= topOfNav) {
+      // console.log(topOfNav);
+      if (window.scrollY >= topOfNav) { // window is het hoofdobject van javascript in de browser
         document.body.style.paddingTop = nav.offsetHeight + 'px';
+        // document.body.style.setProperty('--padding-top', nav.offsetHeight); hier geef je via een custom property de style aan i.p.v. in javascript
         document.body.classList.add('fixed-nav');
       } else {
         document.body.classList.remove('fixed-nav');
         document.body.style.paddingTop = 0;
+        // document.body.style.setProperty('--padding-top', 0)
       }
     }
 
